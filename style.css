@@ -1,0 +1,9 @@
+/*これはコメントです*/
+h1 {
+    color: #0000ff;
+}
+footer{
+    height:100px;
+    width:400px;
+    background-color: turquoise;
+}

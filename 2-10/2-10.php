@@ -23,3 +23,10 @@ getCuboidVolume(5,10,8);
 よく使われている。
 
 -->
+<?php
+
+?>    
+<?php
+    echo
+?>
+    echo

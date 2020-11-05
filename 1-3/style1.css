@@ -1,0 +1,23 @@
+header{
+    background-color: #141f40;
+    height: 100px;
+}
+.wrapper{
+    height: 250px;
+}
+.left{
+    height:100%;
+    width: 150px;
+    background-color: #80bfa8;
+    float: left;
+}
+.right{
+    height:100%;
+    width: 250px;
+    background-color: #8c2727;
+    float: left;
+}
+footer{
+    background-color: #d98d30;
+    height: 100px;
+}
