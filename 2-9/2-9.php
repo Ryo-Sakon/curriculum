@@ -1,6 +1,23 @@
 <?PHP
     $num = 1;
     while ($num < 100) {
+        if ($num % 3 == 0 && $num % 5 != 0) {
+            echo "Fizz!!";
+        } elseif ($num % 3 != 0 && $num % 5 == 0) {
+            echo "Buzz!!";
+        } elseif ($num % 3 == 0 && $num % 5 == 0) {
+            echo "FizzBuzz!!";
+        }else{
+            echo $num;
+        }
+        echo "<br>";
+        $num++;
+    }
+?>
+
+<!-- <?PHP
+    $num = 1;
+    while ($num < 100) {
         if ($num % 3 == 0) {
             echo "Fizz!!";
         } 
@@ -15,7 +32,7 @@
     }
 
 
-?>
+?> -->
 
 <!-- ＜IT用語説明＞ 
 ・パフォーマンス：性能のこと。動作のクオリティ。
