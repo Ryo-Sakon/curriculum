@@ -12,9 +12,9 @@
 
     echo "<br><br><br>";
 
-    echo "今".date("h")."時台です";
+    echo "今".date("H")."時台です";
     echo "<br>";
-    $date = date("h");
+    $date = date("H");
     if ($date >= 4 && $date < 10) {
         echo "おはようございます";
         
