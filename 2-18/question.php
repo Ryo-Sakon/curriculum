@@ -6,19 +6,19 @@
 <?php 
   $port_number = [80,22,20,21];
   foreach ($port_number as $value) {?>
-  <input type="radio" name="port_number" value="<?php $value?>"><?php echo $value; } ?>    
+  <input type="radio" name="port_number" value="<?php echo $value;?>"><?php echo $value; } ?>    
   <h2>②Webページを作成するための言語は？</h2>
 <?php 
-  $port_number = ["PHP","Python","JAVA","HTML"];
-  foreach ($port_number as $value) {?>
-  <input type="radio" name="language" value="<?php $value?>"><?php echo $value; } ?>    
+  $language = ["PHP","Python","JAVA","HTML"];
+  foreach ($language as $value) {?>
+  <input type="radio" name="language" value="<?php echo $value;?>"><?php echo $value; } ?>    
 <h2>③MySQLで情報を取得するためのコマンドは？</h2>
 <?php 
-  $port_number = ["join","select","insert","update"];
-  foreach ($port_number as $value) {?>
-  <input type="radio" name="command" value="<?php $value?>"><?php echo $value; } ?>
+  $command = ["join","select","insert","update"];
+  foreach ($command as $value) {?>
+  <input type="radio" name="command" value="<?php echo $value;?>"><?php echo $value; } ?>
   <br>
-  <input type="hidden" name="my_name" value="$name">
+  <input type="hidden" name="my_name" value="<?php echo $name; ?>">
   <input type="submit" value="回答する">
 
 </form>

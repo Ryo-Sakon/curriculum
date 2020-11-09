@@ -26,7 +26,7 @@
 <br>
 <p>③の答え</p>
 <?php
-    if ($answer3 == "update") {
+    if ($answer3 == "select") {
         echo "正解！";
     }else {
         echo "残念...";
