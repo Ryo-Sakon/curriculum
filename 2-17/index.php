@@ -1,7 +1,7 @@
 <?php
     $counts = 0;
     $sum = 0;
-    while ($sum <= 40) {
+    while ($sum < 40) {
         $counts++;
         $num = mt_rand(1,6);
         $sum += $num;

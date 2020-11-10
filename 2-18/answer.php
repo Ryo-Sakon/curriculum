@@ -5,7 +5,7 @@
     $answer3 = $_POST['command']; 
 ?>
 
-<p><?php echo $name?>さんの結果は・・・？</p>
+<p><?=$name?>さんの結果は・・・？</p>
 <p>①の答え</p>
 <?php
     if ($answer1 == "80") {
