@@ -1,0 +1,42 @@
+@media screen and (min-width: 767px) {
+
+}
+
+@media screen and (max-width: 767px) {
+
+}
+@media screen and (max-width: 479px) {
+        body{
+            width:200px;
+        }
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .top-wrapper{
+            height:200px;
+        }
+        .top-box{
+            height: 160px;
+            width:60px;
+            top:20px;
+            left:70px;
+        }
+        .top-item{
+            margin-bottom: 10px;
+        }
+        .center-left{
+            height: 100px;
+            width:100%;
+        }
+        .center-right{
+            width: 100%;
+        }
+        .center-right-box{
+            top:20px;
+            left:30px;
+        }
+}
+/*firstchild未使用です。使い所が
+わからなかったので、教えていただければ幸いです。*/
