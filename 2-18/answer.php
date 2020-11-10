@@ -1,3 +1,9 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+</html>
+
 <?php 
     $name = $_POST['my_name']; 
     $answer1 = $_POST['port_number']; 

@@ -1,3 +1,8 @@
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+
+
 <?php $name = $_POST['my_name']; ?>
 <p>お疲れ様です<?=$name ?>さん</p>
 
@@ -22,3 +27,11 @@
   <input type="submit" value="回答する">
 
 </form>
+
+<style>
+body{
+  background-color: gray;
+  color: white;
+  text-align: center;
+}
+</style>
