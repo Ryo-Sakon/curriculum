@@ -27,11 +27,3 @@
   <input type="submit" value="回答する">
 
 </form>
-
-<style>
-body{
-  background-color: gray;
-  color: white;
-  text-align: center;
-}
-</style>

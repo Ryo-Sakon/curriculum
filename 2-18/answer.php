@@ -1,8 +1,6 @@
-<html>
 <head>
 <link rel="stylesheet" href="style.css">
 </head>
-</html>
 
 <?php 
     $name = $_POST['my_name']; 
@@ -11,31 +9,31 @@
     $answer3 = $_POST['command']; 
 ?>
 
-<p><?=$name?>さんの結果は・・・？</p>
+<p><?=$name?>さんの結果は・・？</p>
 <p>①の答え</p>
-<?php
+<p><?php
     if ($answer1 == "80") {
         echo "正解！";
     }else {
-        echo "残念...";
+        echo "残念・・・";
     }
 ?>
-<br>
+</p>
 <p>②の答え</p>
-<?php
+<p><?php
     if ($answer2 == "PHP") {
         echo "正解！";
     }else {
-        echo "残念...";
+        echo "残念・・・";
     }
 ?>
-<br>
+</p>
 <p>③の答え</p>
-<?php
+<p><?php
     if ($answer3 == "select") {
         echo "正解！";
     }else {
-        echo "残念...";
+        echo "残念・・・";
     }
 ?>
-<br>
+</p>
