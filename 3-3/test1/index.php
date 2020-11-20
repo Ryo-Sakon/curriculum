@@ -1,6 +1,6 @@
 <?php
 // クラスの名簿の配列
-$list = array(
+$list = [
     '山田' => array(
         'ID' => '001',
         '出身' => '函館',
@@ -36,7 +36,7 @@ $list = array(
         'メールアドレス' => 'mori@example.com',
         '性別' => '女性',
     )
-);
+    ];
 
 // 取得したクラス名簿を表示するための処理
 function getName($list) {
@@ -45,7 +45,7 @@ function getName($list) {
 //配列の中の名前を出す。
     foreach ($list as $key => $member) {
         if ($i < count($list)) {
-            echo $key[0] . '<br>';
+            echo $key .'<br>';
         }
         $i++;
     }
@@ -54,7 +54,6 @@ function getName($list) {
 getName($list);
 echo '<br>';
 // 大阪出身の方を表示
-getPeople();
 
 // 大阪出身の方を抽出
 function getPeople($list) {
@@ -64,5 +63,6 @@ function getPeople($list) {
         }
     }
 }
+getPeople($list);
 
 ?>
