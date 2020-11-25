@@ -1,7 +1,5 @@
 <?php 
 function connect(){
-    $dbName="checktest4";
-    $host="localhost";
     $username = 'root';
     $password = 'root';
     try {
@@ -9,7 +7,6 @@ function connect(){
         echo "接続できました";
     } catch (PDOException $e) {
         echo $e->getMessage();
-        echo "エラーです";
         die();
     }
 }

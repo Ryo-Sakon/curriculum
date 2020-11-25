@@ -1,6 +1,6 @@
 <?php
-include_once("getData");
-
+require_once("getData");
+connect();
 ?> 
 <!DOCTYPE html>
 <html lang="ja">
@@ -17,12 +17,23 @@ include_once("getData");
             <img src="img/yigrouplogo.png">
         </div>
         <div class="header-right">
-            <p>ようこそ<?php echo "getUserData();"?>さん</p>
+            <p>ようこそ<?php echo getUserData();?>さん</p>
             <p>最終ログイン日</p>
         </div>
     </header>
     <div class="main">
-
+        <table>
+        <tr>
+            <th>記事ID</th>
+            <th>タイトル</th>
+            <th>カテゴリ</th>
+            <th>本文</th>
+            <th>投稿日</th>
+        </tr>
+        <?php
+            echo getPostData();
+        ?>
+        </table>
     </div>
     <footer>Y&I group.inc</footer>
 </body>
