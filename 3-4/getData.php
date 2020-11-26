@@ -1,16 +1,13 @@
 <?php
-require_once("pdo.php");
+require_once('pdo.php');
 
 class getData{
-
     public $pdo;
     public $data;
-
     //コンストラクタ
     function __construct()  {
         $this->pdo = connect();
     }
-
     /**
      * ユーザ情報の取得
      *
@@ -35,3 +32,14 @@ class getData{
         return $post_data;
     }
 }
+
+/*コネクト関数とは、DBに接続することを指します。
+pdo.phpを参照します。
+getDataクラスとは、次のようなものです。
+①データベースの種類pdoがある ②データベース内のデータ の２つのプロパティの定義がある
+コンストラクタに書かれている内容により、$pdoは、コネクト関数を実行することである
+
+getUserData関数は、そのデータベースにおけるusersテーブルの値を１つだけreturnしたものである。int型
+getPostData関数は、そのデータベースにおけるpostsテーブルの値をid順に全て* returnしたものである。int型
+なぜクラスの中に書かれているのかは、データベース名$pdoとデータ$dataをその都度指定する必要があるため。
+*/

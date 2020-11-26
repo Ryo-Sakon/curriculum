@@ -1,6 +1,6 @@
 <?php
-require_once("getData");
-connect();
+require_once('getData.php');
+$YIGroupBlog=new getData;
 ?> 
 <!DOCTYPE html>
 <html lang="ja">
@@ -17,7 +17,7 @@ connect();
             <img src="img/yigrouplogo.png">
         </div>
         <div class="header-right">
-            <p>ようこそ<?php echo getUserData();?>さん</p>
+            <p>ようこそ<?php echo $YIGroupBlog->getUserData() ?>さん</p>
             <p>最終ログイン日</p>
         </div>
     </header>
@@ -30,9 +30,7 @@ connect();
             <th>本文</th>
             <th>投稿日</th>
         </tr>
-        <?php
-            echo getPostData();
-        ?>
+        <?php echo $YIGroupBlog->getPostData() ?>
         </table>
     </div>
     <footer>Y&I group.inc</footer>
