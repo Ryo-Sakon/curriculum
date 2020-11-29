@@ -1,6 +1,7 @@
 <?php
 require_once('getData.php');
-$YIGroupBlog=new getData;
+require_once('pdo.php');
+$YIGroupBlog=new getData($pdo);
 ?> 
 <!DOCTYPE html>
 <html lang="ja">
