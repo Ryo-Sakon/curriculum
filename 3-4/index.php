@@ -2,7 +2,9 @@
 require_once('getData.php');
 require_once('pdo.php');
 $YIGroupBlog=new getData();
-
+// $pdo = new PDO("mysql:dbname=checktest4;host=localhost","root","root");
+// $getposts_sql = "SELECT * FROM posts ORDER BY id desc";
+// $post_data = $pdo->query($getposts_sql);
 
 ?> 
 <!DOCTYPE html>
@@ -33,7 +35,7 @@ $YIGroupBlog=new getData();
             <th>本文</th>
             <th>投稿日</th>
         </tr>
-        <?php while ($row=$YIGroupBlog->getPostData()->fetch()) {
+        <?php while ($row=$YIGroupBlog->getPostData()->fetch())/*($row=$post_data->fetch())*/ { 
             $id = $row['id'];
             $title = $row['title'];
             $category_no = $row['category_no'];
