@@ -1,6 +1,4 @@
 <?php 
-function hello(){
-    echo "hello";
-}
-var_dump (hello());
+$fruits=["apple","melon"];
+echo $fruits[0].$fruits[1];
 ?>

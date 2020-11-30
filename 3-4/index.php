@@ -1,7 +1,9 @@
 <?php
 require_once('getData.php');
 require_once('pdo.php');
-$YIGroupBlog=new getData($pdo);
+$YIGroupBlog=new getData();
+
+
 ?> 
 <!DOCTYPE html>
 <html lang="ja">
@@ -18,7 +20,7 @@ $YIGroupBlog=new getData($pdo);
             <img src="img/yigrouplogo.png">
         </div>
         <div class="header-right">
-            <p>ようこそ<?php echo $YIGroupBlog->getUserData() ?>さん</p>
+            <p>ようこそ<?php echo $YIGroupBlog->getUserData()['last_name'].$YIGroupBlog->getUserData()['first_name'] ?>さん</p>
             <p>最終ログイン日</p>
         </div>
     </header>
@@ -31,7 +33,16 @@ $YIGroupBlog=new getData($pdo);
             <th>本文</th>
             <th>投稿日</th>
         </tr>
-        <?php echo $YIGroupBlog->getPostData() ?>
+        <?php while ($row=$YIGroupBlog->getPostData()->fetch()) {
+            $id = $row['id'];
+            $title = $row['title'];
+            $category_no = $row['category_no'];
+            $comment = $row['comment'];
+            $created = $row['created'];
+   
+            echo "<tr><td>$id</td><td>$title</td><td>$category_no</td><td>$comment</td><td>$created</td></tr>";
+        }
+        ?>
         </table>
     </div>
     <footer>Y&I group.inc</footer>
