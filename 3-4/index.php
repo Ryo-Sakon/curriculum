@@ -35,15 +35,17 @@ $YIGroupBlog=new getData();
             <th>本文</th>
             <th>投稿日</th>
         </tr>
-        <?php while ($row=$YIGroupBlog->getPostData()->fetch())/*($row=$post_data->fetch())*/ { 
-            $id = $row['id'];
-            $title = $row['title'];
-            $category_no = $row['category_no'];
-            $comment = $row['comment'];
-            $created = $row['created'];
+        <?php 
+        echo $YIGroupBlog->getPostData()['title'];
+        // while ($row->fetch())/*($row=$post_data->fetch())*/ { 
+        //     $id = $row['id'];
+        //     $title = $row['title'];
+        //     $category_no = $row['category_no'];
+        //     $comment = $row['comment'];
+        //     $created = $row['created'];
    
-            echo "<tr><td>$id</td><td>$title</td><td>$category_no</td><td>$comment</td><td>$created</td></tr>";
-        }
+        //     echo "<tr><td>$id</td><td>$title</td><td>$category_no</td><td>$comment</td><td>$created</td></tr>";
+        // }
         ?>
         </table>
     </div>
