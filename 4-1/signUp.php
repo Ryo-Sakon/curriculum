@@ -1,13 +1,24 @@
 <?php
 require_once("db_connect.php");
-try {
-    $st = $pdo->prepare("INSERT INTO users VALUES(?,?)");
-    $st->execute(array($_POST['name'],$_POST['password']));
-    echo "OK";
-}catch(PDOException $e){
-    echo $e;
-    die;
-}?>
+// POSTで送られていれば処理実行
+if (!empty($_POST["name"]) && !empty($_POST["password"])) {
+    $pdo=db_connect();
+    try {
+        // SQL文の準備 FILL_IN
+        // パスワードをハッシュ化
+        //password_hash($password , $algo , $options)password_verify ( $password , $hash )
+        // プリペアドステートメントの作成 FILL_IN
+        // 値をセットFILL_IN
+        // 実行 FILL_IN
+        $st = $pdo->prepare("INSERT INTO users(name,password) VALUES(:name,:password)");
+        $st->execute(array(':name' => $_POST['name'],':password' => password_hash($_POST['password'], PASSWORD_DEFAULT)));
+        echo "OK";
+    } catch (PDOException $e) {
+        echo $e;
+        die();
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html>

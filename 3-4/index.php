@@ -36,7 +36,14 @@ $YIGroupBlog=new getData();
             <th>投稿日</th>
         </tr>
         <?php 
-        echo $YIGroupBlog->getPostData()['title'];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+            <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['title']; ?></td>
+                <td><?php echo $row['content']; ?></td>
+                <td><?php echo $row['time']; ?></td>
+            </tr>
+        <?php } 
         // while ($row->fetch())/*($row=$post_data->fetch())*/ { 
         //     $id = $row['id'];
         //     $title = $row['title'];
