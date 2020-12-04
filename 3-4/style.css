@@ -3,6 +3,10 @@ body{
     width:1000px;
 }
 
+th{
+    background-color: #87ceeb;
+}
+
 header{
     height:120px;
 }

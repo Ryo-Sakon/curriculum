@@ -1,10 +1,7 @@
 <?php
 require_once('getData.php');
 require_once('pdo.php');
-$YIGroupBlog=new getData();
-// $pdo = new PDO("mysql:dbname=checktest4;host=localhost","root","root");
-// $getposts_sql = "SELECT * FROM posts ORDER BY id desc";
-// $post_data = $pdo->query($getposts_sql);
+$checkTest4=new getData();
 
 ?> 
 <!DOCTYPE html>
@@ -22,8 +19,9 @@ $YIGroupBlog=new getData();
             <img src="img/yigrouplogo.png">
         </div>
         <div class="header-right">
-            <p>ようこそ<?php echo $YIGroupBlog->getUserData()['last_name'].$YIGroupBlog->getUserData()['first_name'] ?>さん</p>
-            <p>最終ログイン日</p>
+            <p style="background-color:#87ceeb">ようこそ<?php echo $checkTest4->getUserData()['last_name'].$checkTest4->getUserData()['first_name'] ?>さん</p>
+            <p style="background-color:#00ffff">最終ログイン日：<?php echo $checkTest4->getUserData()['last_login'] ?>
+            </p>
         </div>
     </header>
     <div class="main">
@@ -36,23 +34,16 @@ $YIGroupBlog=new getData();
             <th>投稿日</th>
         </tr>
         <?php 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-            <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['title']; ?></td>
-                <td><?php echo $row['content']; ?></td>
-                <td><?php echo $row['time']; ?></td>
-            </tr>
-        <?php } 
-        // while ($row->fetch())/*($row=$post_data->fetch())*/ { 
-        //     $id = $row['id'];
-        //     $title = $row['title'];
-        //     $category_no = $row['category_no'];
-        //     $comment = $row['comment'];
-        //     $created = $row['created'];
+        $st=$checkTest4->getPostData();
+        while ($row=$st->fetch(PDO::FETCH_ASSOC)) {
+            $id = htmlspecialchars($row['id']);
+            $title = htmlspecialchars($row['title']);
+            $category_no = htmlspecialchars($row['category_no']);
+            $comment = htmlspecialchars($row['comment']);
+            $created = htmlspecialchars($row['created']);
    
-        //     echo "<tr><td>$id</td><td>$title</td><td>$category_no</td><td>$comment</td><td>$created</td></tr>";
-        // }
+            echo "<tr><td>$id</td><td>$title</td><td>$category_no</td><td>$comment</td><td>$created</td></tr>";
+        }
         ?>
         </table>
     </div>

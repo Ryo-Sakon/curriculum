@@ -5,19 +5,23 @@ class getData{
     //コンストラクタ
     function __construct()  {
         $this->pdo = connect();
+        //値をreturnで返す
     }
     /**
      * ユーザ情報の取得
      *
-     * @param 
-     * @return array $users_data ユーザ情報
+     * @param パラメーター　何をしているのか
+     * @return array $users_data ユーザ情報（表しているもの）
      */
     public function getUserData(){
         $getusers_sql = "SELECT * FROM users limit 1";
         $users_data = $this->pdo->query($getusers_sql)->fetch(PDO::FETCH_ASSOC);
         return $users_data;
     }
-    
+    //pdoはインスタンス  ::は  fetch（配列の形式）、配列の形式で取り出すという日本語（方法）は配列形式のデータを取り出す、とにかく必要だというルール
+    //executeにすると、書いた瞬間に実行されるSQLinjectionという攻撃を避ける
+    //1=1;必ずTRUEになってしまう、一旦文字列にしてしまう バインドバリュー、バインドぱらむ
+    //::はクラスのスコープ定義演算子 このクラスにおける
     /**
      * 記事情報の取得
      *
@@ -26,7 +30,7 @@ class getData{
      */
     public function getPostData(){
         $getposts_sql = "SELECT * FROM posts ORDER BY id desc";
-        $post_data = $this->pdo->query($getposts_sql)->fetch(PDO::FETCH_ASSOC);
+        $post_data = $this->pdo->query($getposts_sql);
         return $post_data;
     }
 }

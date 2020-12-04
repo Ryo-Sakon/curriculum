@@ -9,7 +9,9 @@ if (!empty($_POST["name"]) && !empty($_POST["password"])) {
         //password_hash($password , $algo , $options)password_verify ( $password , $hash )
         // プリペアドステートメントの作成 FILL_IN
         // 値をセットFILL_IN
+        // BindValue Bind execute(); 
         // 実行 FILL_IN
+        // $nameなどの変数を使うと、SQL Injectionが発生するため
         $st = $pdo->prepare("INSERT INTO users(name,password) VALUES(:name,:password)");
         $st->execute(array(':name' => $_POST['name'],':password' => password_hash($_POST['password'], PASSWORD_DEFAULT)));
         echo "OK";
