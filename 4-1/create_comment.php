@@ -1,7 +1,8 @@
 <?php
-// db_connect.phpの読み込みFILL_IN
-// function.phpの読み込みFILL_IN
-// ログインしていなければ、login.phpにリダイレクトFILL_IN
+require_once("db_connect.php");
+require_once("function.php");
+check_user_logged_in();
+
 // 提出ボタンが押された場合
 if (!empty($_POST)) { 
 // POST送信されたpost_idを変数に格納しておく 

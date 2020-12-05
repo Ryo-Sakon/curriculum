@@ -6,9 +6,9 @@ db_connect();
 
 try {
     // SQL文の準備
-    $pdo->prepare("SELECT * FROM posts ORDER BY id DESC");
+    $sql="SELECT * FROM posts ORDER BY id DESC";
     // プリペアドステートメントの作成
-    $stmt=$a;
+    $stmt=$pdo->prepare($sql);
     // 実行
     $stmt->execute();
 } catch (PDOException $e) {
@@ -24,7 +24,7 @@ try {
 </head>
 <body>
     <h1>メインページ</h1>
-    <p>ようこそ<?php echo $_SESSION["user_name"]; ?>さん</p>
+    <p>ようこそ<?php echo $_SESSION["user_name"]; ?>さん</p>   <!--requireなどで定義してなくてOK-->
     <a href="logout.php">ログアウト</a><br />
     <a href="create_post.php">記事投稿！</a><br />
     <table>
@@ -43,9 +43,9 @@ try {
                 <td><?php echo $row['title']; ?></td>
                 <td><?php echo $row['content']; ?></td>
                 <td><?php echo $row['time']; ?></td>
-           <td><a href="detail_post.php?id=<?php echo $row['id']; ?>">詳細</a></td>
+                <td><a href="detail_post.php?id=<?php echo $row['id']; ?>">詳細</a></td>
                 <td><a href="edit_post.php?id=<?php echo $row['id']; ?>">編集</a></td>
-           <td><a href="delete_post.php?id=<?php echo $row['id']; ?>">削除</a></td>
+                <td><a href="delete_post.php?id=<?php echo $row['id']; ?>">削除</a></td>
             </tr>
         <?php } ?>
     </table>

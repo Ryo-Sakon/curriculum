@@ -1,47 +1,44 @@
 <?php
-// db_connect.phpの読み込み
-FILL_IN
 
-// function.phpの読み込み
-FILL_IN
-
-// ログインしていなければ、login.phpにリダイレクト
-FILL_IN
+require_once("db_connect.php");
+require_once("function.php");
+check_user_logged_in();
 
 // 提出ボタンが押された場合
-if (FILL_IN) {
+if (!empty($_POST)) {
     // titleとcontentの入力チェック
-    if (FILL_IN) {
+    if (!empty($_POST['title'])) {
         echo 'タイトルが未入力です。';
-    } elseif (FILL_IN) {
+    } elseif (!empty($_POST['content'])) {
         echo 'コンテンツが未入力です。';
     }
 
-    if (FILL_IN) {
+    if (!empty($_POST['title'])&&!empty($_POST['content'])) {
         // 入力したtitleとcontentを格納
-        FILL_IN
+        $title = $_POST["title"];
+        $content = $_POST["content"]; 
 
         // PDOのインスタンスを取得
-        FILL_IN
+        $pdo=db_connect();
 
         try {
             // SQL文の準備
-            FILL_IN
+            $sql="INSERT INTO posts(title,content) VALUES(:title,:content)";
             // プリペアドステートメントの準備
-            FILL_IN
+            $stmt=$pdo->prepare($sql);
             // タイトルをバインド
-            FILL_IN
+            $stmt->bindParam(":title",$title);
             // 本文をバインド
-            FILL_IN
+            $stmt->bindParam(":content",$content);
             // 実行
-            FILL_IN
+            $stmt->execute($_POST['title'],$_POST['content']);
             // main.phpにリダイレクト
-            FILL_IN
+            header("Location:main.php");
         } catch (PDOException $e) {
             // エラーメッセージの出力
-            FILL_IN
+            echo $e;
             // 終了
-            FILL_IN
+            die();
         }
     }
 }

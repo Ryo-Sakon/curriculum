@@ -26,7 +26,7 @@ class getData{
      * 記事情報の取得
      *
      * @param 
-     * @return array $post_data 記事情報
+     * @return object $post_data 記事情報
      */
     public function getPostData(){
         $getposts_sql = "SELECT * FROM posts ORDER BY id desc";

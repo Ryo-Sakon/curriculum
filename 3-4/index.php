@@ -1,7 +1,7 @@
 <?php
 require_once('getData.php');
 require_once('pdo.php');
-$checkTest4=new getData();
+$checkTest4=new getData(); //コンストラクタ用の引数
 
 ?> 
 <!DOCTYPE html>
@@ -10,6 +10,7 @@ $checkTest4=new getData();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!---->
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -34,14 +35,25 @@ $checkTest4=new getData();
             <th>投稿日</th>
         </tr>
         <?php 
-        $st=$checkTest4->getPostData();
-        while ($row=$st->fetch(PDO::FETCH_ASSOC)) {
+        $stmt=$checkTest4->getPostData();
+        $convert_category_no=$stmt->fetch(PDO::FETCH_ASSOC);
+        //array
+        while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
             $id = htmlspecialchars($row['id']);
             $title = htmlspecialchars($row['title']);
             $category_no = htmlspecialchars($row['category_no']);
+            switch($category_no){
+                case 1 :
+                    $category_no="食事";
+                    break;
+                case 2 :
+                    $category_no="旅行";
+                    break;
+                default:
+                    $category_no="その他";
+            }
             $comment = htmlspecialchars($row['comment']);
             $created = htmlspecialchars($row['created']);
-   
             echo "<tr><td>$id</td><td>$title</td><td>$category_no</td><td>$comment</td><td>$created</td></tr>";
         }
         ?>

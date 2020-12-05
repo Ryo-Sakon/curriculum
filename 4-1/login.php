@@ -1,6 +1,6 @@
 <?php
 require_once('db_connect.php');
-// セッション開始
+// セッション開始。誰がアクセスしたか？
 session_start();
 
 // $_POSTが空ではない場合
@@ -23,22 +23,25 @@ if (!empty($_POST)) {
         // ログイン処理開始
         $pdo = db_connect();
         try {
-            //データベースアクセスの処理文章。ログイン名があるか判定
+            //データベースアクセスの処理文章。ログイン名があるか判定//$namepostされたものと一致するレコード＊全て
             $sql = "SELECT * FROM users WHERE name = :name";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':name', $name);    //メソッドの引数は初期値があるものは未記入でOKーーーーーbindParamは第一引数に第二引数を渡す
             $stmt->execute();
         } catch (PDOException $e) {
             echo 'Error: ' . $e->getMessage();
             die();
         }
-
+        // class PDO(){
+        //     public $parameter;
+        //     function bindparam
+        // }
         // 結果が1行取得できたら
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            // ハッシュ化されたパスワードを判定する定形関数のpassword_verify
+            // ハッシュ化されたパスワードを判定する定形関数のpassword_verify右boolean
             // 入力された値と引っ張ってきた値が同じか判定しています。
             if (password_verify($pass, $row['password'])) {
-                // セッションに値を保存
+                // セッションに値を保存（一定の長い期間！どこに？sessionという特別な保存場所、サーバー）
                 $_SESSION["user_id"] = $row['id'];
                 $_SESSION["user_name"] = $row['name'];
                 // main.phpにリダイレクト

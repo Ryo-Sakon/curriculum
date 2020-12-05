@@ -1,12 +1,7 @@
 <?php
-// db_connect.phpの読み込み
-FILL_IN
-
-// function.phpの読み込み
-FILL_IN
-
-// ログインしていなければ、login.phpにリダイレクト
-FILL_IN
+require_once("db_connect.php");
+require_once("function.php");
+check_user_logged_in();
 
 // URLの?以降で渡されるIDをキャッチ
 $id = $_GET['id'];
@@ -18,23 +13,21 @@ if (empty($id)) {
 }
 
 // PDOのインスタンスを取得
-FILL_IN
+db_connect();
 
 try {
+    $sql = "DELETE FROM posts WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id);    //メソッドの引数は初期値があるものは未記入でOKーーーーーbindParamは第一引数に第二引数を渡す
+    $stmt->execute();
     // SQL文の準備
-    FILL_IN
     // プリペアドステートメントの作成
-    FILL_IN
     // idのバインド
-    FILL_IN
     // 実行
-    FILL_IN
-    // main.phpにリダイレクト
+    
     header("Location: main.php");
     exit;
 } catch (PDOException $e) {
-    // エラーメッセージの出力
-    FILL_IN
-    // 終了
-    FILL_IN
+    echo $e;
+    die();
 }
