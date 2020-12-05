@@ -9,25 +9,45 @@ th{
 
 header{
     height:120px;
+    width:100%;
 }
 
 .header-left{
-    width:120px;
+    height:120px;
+    width:200px;
     float: left;
-    background-color: aqua;
+    background-color:#add8e6;
 }
+.logo{
+    width: 100%;
+    margin:0 auto;
 
+}
 .header-right {
+    width:800px;  /*もう少し良い書き方はないか？*/
+    height: 120px;
     float: left;
 }
-
-.header-right p{
+.header-right-inner{
     height:60px;
     text-align: right;
-    border: 1px solid black;
+    line-height: 60px;
+    margin:0 auto;
+}
+.upper{
+    background-color: #87ceeb;    
+}
+.lower{
+    background-color: #00ffff;
 }
 
+.blog-table{
+    margin:10px auto;
+}
+.blog-table-record{
+    background-color:#e0ffff ;
+}
 footer{
     height:50px;
-    background-color: aquamarine;
+    background-color:#00ced1;
 }
