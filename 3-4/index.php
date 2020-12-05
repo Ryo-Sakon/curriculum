@@ -35,7 +35,6 @@ $checkTest4=new getData(); //コンストラクタ用の引数
         </tr>
         <?php 
         $stmt=$checkTest4->getPostData();
-        $convert_category_no=$stmt->fetch(PDO::FETCH_ASSOC);
             while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
             $id = htmlspecialchars($row['id']);
             $title = htmlspecialchars($row['title']);
