@@ -1,5 +1,4 @@
 <?php
-
 require_once("db_connect.php");
 require_once("function.php");
 check_user_logged_in();
@@ -31,7 +30,7 @@ if (!empty($_POST)) {
             // 本文をバインド
             $stmt->bindParam(":content",$content);
             // 実行
-            $stmt->execute($_POST['title'],$_POST['content']);
+            $stmt->execute();
             // main.phpにリダイレクト
             header("Location:main.php");
         } catch (PDOException $e) {

@@ -13,7 +13,7 @@ if (empty($id)) {
 }
 
 // PDOのインスタンスを取得
-db_connect();
+$pdo=db_connect();
 
 try {
     $sql = "DELETE FROM posts WHERE id = :id";

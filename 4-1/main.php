@@ -6,7 +6,7 @@ $pdo=db_connect();
 
 try {
     // SQL文の準備
-    $sql="SELECT * FROM posts ORDER BY id DESC";
+     $sql="SELECT * FROM posts ORDER BY id DESC";
     // プリペアドステートメントの作成
     $stmt=$pdo->prepare($sql);
     // 実行

@@ -20,12 +20,12 @@ $content = $_POST["content"];
 // PDOのインスタンスを取得 FILL_IN
 $pdo=db_connect();
 try { 
-$sql_create_comments="INSERT INTO comments VALUES(:post_id,:name,:content)";
+$sql_create_comments=("INSERT INTO comments(post_id,name,content) VALUES(:post_id,:name,:content)");
 $stmt_create_comments = $pdo->prepare($sql_create_comments);
-$stmt_comments->bindParam(':post_id', $post_id);
-$stmt_comments->bindParam(':name', $name);
-$stmt_comments->bindParam(':post_id', $content);
-$stmt_comments->execute($_POST["post_id"],$_POST["name"],$_POST["content"]);
+$stmt_create_comments->bindParam(':post_id', $post_id);
+$stmt_create_comments->bindParam(':name', $name);
+$stmt_create_comments->bindParam(':content', $content);
+$stmt_create_comments->execute();
 // 対象のpost_idのdetail_post.phpにリダイレクト
 header("Location: detail_post.php?id=".$post_id);
 exit; 
