@@ -32,11 +32,6 @@ if (!empty($_POST)) {
             echo 'Error: ' . $e->getMessage();
             die();
         }
-        // class PDO(){
-        //     public $parameter;
-        //     function bindparam
-        // }
-        // 結果が1行取得できたら
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             // ハッシュ化されたパスワードを判定する定形関数のpassword_verify右boolean
             // 入力された値と引っ張ってきた値が同じか判定しています。
@@ -66,9 +61,10 @@ if (!empty($_POST)) {
     </head>
     <body>
         <h2>ログイン画面</h2>
+        <a href="signUp.php">新規ユーザー登録</a>
         <form method="post" action="">
-            名前：<input type="text" name="name" size="15"><br><br>
-            パスワード：<input type="text" name="pass" size="15"><br><br>
+            <input type="text" name="name" size="15" placeholder="ユーザー名"><br><br>
+            <input type="text" name="pass" size="15" placeholder="パスワード"><br><br>
             <input type="submit" value="ログイン">
         </form>
     </body>

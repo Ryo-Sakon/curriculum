@@ -21,14 +21,11 @@ if (!empty($_POST["name"]) && !empty($_POST["password"])) {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-    <h1>新規登録</h1>
+    <h1>ユーザー登録画面</h1>
     <form method="POST" action="">
-        user:<br>
-        <input type="text" name="name" id="name">
-        <br>
-        password:<br>
-        <input type="password" name="password" id="password"><br>
-        <input type="submit" value="submit" id="signUp" name="signUp">
+        <input type="text" name="name" id="name" placeholder="ユーザー名"><br>
+        <input type="password" name="password" id="password" placeholder="パスワード"><br>
+        <input type="submit" value="新規登録" id="signUp" name="signUp">
     </form>
 </body>
 </html>
