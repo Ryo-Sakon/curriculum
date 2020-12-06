@@ -2,7 +2,7 @@
 require_once("db_connect.php");
 require_once("function.php");
 check_user_logged_in();
-db_connect();
+$pdo=db_connect();
 
 try {
     // SQL文の準備
@@ -49,19 +49,5 @@ try {
             </tr>
         <?php } ?>
     </table>
-</body>
-</html>
-
-
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>メイン</title>
-</head>
-<body>
-    <h1>メインページ</h1>
-    <p>ようこそ<?php echo $_SESSION["user_name"]; ?>さん</p>
-    <a href="logout.php">ログアウト</a>
 </body>
 </html>

@@ -19,12 +19,7 @@ try {
     $sql = "DELETE FROM posts WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id', $id);    //メソッドの引数は初期値があるものは未記入でOKーーーーーbindParamは第一引数に第二引数を渡す
-    $stmt->execute();
-    // SQL文の準備
-    // プリペアドステートメントの作成
-    // idのバインド
-    // 実行
-    
+    $stmt->execute();    
     header("Location: main.php");
     exit;
 } catch (PDOException $e) {

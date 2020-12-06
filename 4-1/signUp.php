@@ -5,10 +5,10 @@ if (!empty($_POST["name"]) && !empty($_POST["password"])) {
     try {
         $st = $pdo->prepare("INSERT INTO users(name,password) VALUES(:name,:password) ");
         $st->execute(array(':name'=>$_POST['name'],':password'=>password_hash($_POST['password'], PASSWORD_DEFAULT)));
-        echo "OK";
+        echo "登録が完了しました。<br>";
+        echo "<a href='login.php'>ログイン画面</a>";
     } catch (PDOException $e) {
-        echo $e;
-        $array=[$x,$y];
+        echo "データベースエラー：".$e;
         die();
     }
 }

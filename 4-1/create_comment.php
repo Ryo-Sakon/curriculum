@@ -18,13 +18,14 @@ if (!empty($_POST["name"]) && !empty($_POST["content"])) {
 $name = $_POST["name"];
 $content = $_POST["content"]; 
 // PDOのインスタンスを取得 FILL_IN
+$pdo=db_connect();
 try { 
-// SQL文の準備 FILL_IN 
-// プリペアドステートメントの準備 FILL_IN
-// post_idをバインド FILL_IN
-// nameをバインド FILL_IN 
-// contentをバインド FILL_IN
-// 実行 FILL_IN
+$sql_create_comments="INSERT INTO comments VALUES(:post_id,:name,:content)";
+$stmt_create_comments = $pdo->prepare($sql_create_comments);
+$stmt_comments->bindParam(':post_id', $post_id);
+$stmt_comments->bindParam(':name', $name);
+$stmt_comments->bindParam(':post_id', $content);
+$stmt_comments->execute($_POST["post_id"],$_POST["name"],$_POST["content"]);
 // 対象のpost_idのdetail_post.phpにリダイレクト
 header("Location: detail_post.php?id=".$post_id);
 exit; 
