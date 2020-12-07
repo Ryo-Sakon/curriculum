@@ -1,0 +1,35 @@
+.textbox{
+    height: 30px;
+    width:400px;
+    margin-bottom: 20px;
+}
+.button{
+    height: 40px;
+    width: 200px;
+    font-size: larger;
+    border-radius: 5px;
+    border: none;
+    color:white;
+}
+.sign-up{
+    background-color: #0055ff;
+}
+
+.top-wrapper{
+    height: 100px;
+    width:auto;
+}
+
+.title{
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.top-btn{
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 0;
+    background-color: #248b8b;
+    text-align: center;
+    line-height: 40px;
+}
