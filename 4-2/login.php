@@ -11,15 +11,15 @@ if (!empty($_POST)) {
         echo "名前が未入力です。";
     }
     // パスワードが入力されていない場合の処理
-    if (empty($_POST["pass"])) {
+    if (empty($_POST["password"])) {
         echo "パスワードが未入力です。";
     }
 
     // 両方共入力されている場合
-    if (!empty($_POST["name"]) && !empty($_POST["pass"])) {
+    if (!empty($_POST["name"]) && !empty($_POST["password"])) {
         //ログイン名とパスワードのエスケープ処理
         $name = htmlspecialchars($_POST['name'], ENT_QUOTES);
-        $pass = htmlspecialchars($_POST['pass'], ENT_QUOTES);
+        $password = htmlspecialchars($_POST['password'], ENT_QUOTES);
         // ログイン処理開始
         $pdo = db_connect();
         try {
@@ -33,9 +33,9 @@ if (!empty($_POST)) {
             die();
         }
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            // ハッシュ化されたパスワードを判定する定形関数のpassword_verify右boolean
+            // ハッシュ化されたパスワードを判定する定形関数のpasswordword_verify右boolean
             // 入力された値と引っ張ってきた値が同じか判定しています。
-            if (password_verify($pass, $row['password'])) {
+            if (password_verify($password, $row['password'])) {
                 // セッションに値を保存（一定の長い期間！どこに？sessionという特別な保存場所、サーバー）
                 $_SESSION["user_id"] = $row['id'];
                 $_SESSION["user_name"] = $row['name'];
@@ -57,15 +57,23 @@ if (!empty($_POST)) {
 <html lang="ja">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ログインページ</title>
+        <title></title>
+        <link rel="stylesheet" href="style.css">
+
     </head>
     <body>
-        <h2>ログイン画面</h2>
-        <a href="signUp.php">新規ユーザー登録</a>
-        <form method="post" action="">
-            <input type="text" name="name" size="15" placeholder="ユーザー名"><br><br>
-            <input type="text" name="pass" size="15" placeholder="パスワード"><br><br>
-            <input type="submit" value="ログイン">
+        <div class="top-wrapper">
+            <div class="title">
+                <h1>ログイン画面</h1>
+            </div>
+            <div class="top green button">
+                <a href="signUp.php">新規ユーザー登録</a>
+            </div>
+        </div>
+        <form method="POST" action="">
+            <input class="textbox" type="text" name="name" placeholder="ユーザー名"><br>
+            <input class="textbox" type="text" name="password" placeholder="パスワード"><br>
+            <input class="blue button" type="submit" value="ログイン">
         </form>
     </body>
 </html>
