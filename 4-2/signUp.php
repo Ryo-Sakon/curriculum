@@ -22,17 +22,15 @@ if (!empty($_POST["name"]) && !empty($_POST["password"])) {
 </head>
 <body>
     <div class="top-wrapper">
-        <div class="title">
-            <h1>ユーザー登録画面</h1>
-        </div>
-        <div class="top green button">
-            <a href="login.php">ログイン画面</a>
-        </div>
+        <h1 class="top-items">ユーザー登録画面</h1>
+        <div class="top-items">
+            <a class="green top button" href="login.php">ログイン画面へ</a>
+        </div>    
     </div>
     <form method="POST" action="">
-        <input class="textbox" type="text" name="name" id="name" placeholder="ユーザー名"><br>
-        <input class="textbox" type="password" name="password" id="password" placeholder="パスワード"><br>
-        <input class="blue button" type="submit" value="新規登録" id="signUp" name="signUp">
+        <input class="textbox" type="text" name="name" placeholder="ユーザー名"><br>
+        <input class="textbox" type="password" name="password" placeholder="パスワード"><br>
+        <input class="blue large button" type="submit" value="新規登録">
     </form>
 </body>
 </html>

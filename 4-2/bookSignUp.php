@@ -47,16 +47,17 @@ if (!empty($_POST)) {
 <head>
     <title></title>
     <meta http-equiv="content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>本 登録画面</h1>
     <form method="POST" action="">
-        <input type="text" name="title" id="title" placeholder="タイトル">
+        <input class="smaller textbox" type="text" name="title" id="title" placeholder="タイトル">
         <br>
-        <input type="date" name="date" id="date" placeholder="発売日"><br>
+        <input class="smaller textbox" type="date" name="date" id="date" placeholder="発売日"><br>
         在庫数<br>
-        <input type="number" name="stock" id="stock" placeholder="選択してください"><br>
-        <input type="submit" value="登録" id="post" name="post">
+        <input class="smaller textbox" type="number" name="stock" id="stock" placeholder="選択してください"><br>
+        <input class="blue large button" type="submit" value="登録" id="post" name="post">
     </form>
 </body>
 </html>

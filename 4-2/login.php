@@ -55,25 +55,23 @@ if (!empty($_POST)) {
 ?>
 <!doctype html>
 <html lang="ja">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
-        <link rel="stylesheet" href="style.css">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
 
-    </head>
-    <body>
-        <div class="top-wrapper">
-            <div class="title">
-                <h1>ログイン画面</h1>
-            </div>
-            <div class="top green button">
-                <a href="signUp.php">新規ユーザー登録</a>
-            </div>
-        </div>
-        <form method="POST" action="">
-            <input class="textbox" type="text" name="name" placeholder="ユーザー名"><br>
-            <input class="textbox" type="text" name="password" placeholder="パスワード"><br>
-            <input class="blue button" type="submit" value="ログイン">
-        </form>
-    </body>
+</head>
+<body>
+    <div class="top-wrapper">
+        <h1 class="top-items">ログイン画面</h1>
+        <div class="top-items">
+            <a class="green top button" href="signUp.php">新規ユーザー登録</a>
+        </div>    
+    </div>
+    <form method="POST" action="">
+        <input class="textbox" type="text" name="name" placeholder="ユーザー名"><br>
+        <input class="textbox" type="password" name="password" placeholder="パスワード"><br>
+        <input class="blue large button" type="submit" value="ログイン">
+    </form>
+</body>
 </html>
